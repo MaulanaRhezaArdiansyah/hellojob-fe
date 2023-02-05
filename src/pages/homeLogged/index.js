@@ -27,7 +27,7 @@ export const HomeLogged = () => {
         <header className="bg-purple w-full h-[15vh] md:h-[20vh] flex items-center px-3 md:px-32 text-2xl font-bold text-white">
           Top Jobs
         </header>
-        <section className="searchbar-row w-full h-[12vh] flex justify-center px-3 md:px-32">
+        <section className="searchbar-row w-full h-[20vh] flex justify-center px-3 md:px-32">
           <div className="searchbar bg-white w-full h-full base-rounded flex items-center">
             {/* <input
               type="text"
