@@ -4,6 +4,7 @@ import { Footer } from "../../components/footer";
 import { Navbar } from "../../components/navbar";
 import { getDataUsers } from "../../redux/actions/users";
 import { TabTitle } from "../../utils/GeneralFunc";
+import { PaginationBar } from "./components/PaginationBar";
 import { TalentList } from "./TalentList";
 
 export const HomeLogged = () => {
@@ -94,7 +95,8 @@ export const HomeLogged = () => {
             <TalentList />
           </div>
         </section>
-        <section className="pagination w-full px-3 md:px-32 h-[30vh]">
+        <PaginationBar />
+        {/* <section className="pagination w-full px-3 md:px-32 h-[30vh]">
           <div className="pagination-container h-full w-full flex justify-center items-center gap-x-5">
             <button className="border-[1px] border-[#DDDDDE] w-16 h-16 flex items-center justify-center base-rounded bg-white">
               {" "}
@@ -117,7 +119,7 @@ export const HomeLogged = () => {
               🔜{" "}
             </button>
           </div>
-        </section>
+        </section> */}
       </main>
       <Footer />
     </>

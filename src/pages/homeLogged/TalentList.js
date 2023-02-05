@@ -12,9 +12,10 @@ export const TalentList = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const getDetailUser = (id) => {
+    // console.log(id);
     navigate(`/profile/talent/${id}`);
   };
-
+  console.log(usersData);
   useEffect(() => {
     dispatch(getDataUsers(`/`));
   }, []);
