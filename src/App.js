@@ -12,6 +12,10 @@ import { Provider } from "react-redux";
 import configureStore from "./redux/store";
 import { ProfileTalent } from "./pages/profiletalent";
 import { Hire } from "./pages/hire";
+import { Chat } from "./pages/chat";
+import { ProfileRecruiter } from "./pages/profileRecruiter";
+import { EditProfileTalent } from "./pages/editProfileTalent";
+import { EditProfileRecruiter } from "./pages/editProfileRecruiter";
 
 function App() {
   const { store } = configureStore();
@@ -32,6 +36,19 @@ function App() {
             <Route path="/home" element={<HomeLogged />} />
             <Route path="/profile/talent/:userId" element={<ProfileTalent />} />
             <Route path="/profile/talent/hire/:userId" element={<Hire />} />
+            <Route
+              path="/profile/recruiter/:userId"
+              element={<ProfileRecruiter />}
+            />
+            <Route
+              path="/profile/talent/edit/:userId"
+              element={<EditProfileTalent />}
+            />
+            <Route
+              path="/profile/recruiter/edit/:userId"
+              element={<EditProfileRecruiter />}
+            />
+            <Route path="/chat" element={<Chat />} />
           </Route>
         </Routes>
       </BrowserRouter>

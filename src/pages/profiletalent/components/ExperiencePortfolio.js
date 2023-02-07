@@ -10,7 +10,9 @@ export const ExperiencePortfolio = () => {
   const dispatch = useDispatch();
   const { userId } = useParams();
 
-  const dataPortfolio = userDataDetail[0] ? userDataDetail[0].portfolios : "";
+  // const dataPortfolio = userDataDetail[0] ? userDataDetail[0].portfolios : "";
+  const dataPortfolio = userDataDetail.portfolio;
+  console.log(userDataDetail.portfolio);
 
   return (
     <div className="experience-portfolio w-full bg-white base-rounded h-[160vh] md:h-[150vh] px-5 py-8 flex flex-col gap-y-8">
@@ -26,10 +28,9 @@ export const ExperiencePortfolio = () => {
                 key={p.portfolio_id}
                 className="flex flex-col gap-y-3 w-72 h-64 max-sm:h-52 items-center justify-center"
               >
-                <div className="app-image w-full h-40 flex justify-center items-center base-rounded">
+                <div className="app-image w-full shadow-md h-40 flex justify-center items-center base-rounded">
                   <a href={`${p.link_repo}`}>
                     <img
-                      //   src={require("../../../assets/img/reminder-app.png")}
                       src={
                         p
                           ? `http://localhost:5000/uploads/images/${p.filename}`
@@ -48,7 +49,7 @@ export const ExperiencePortfolio = () => {
               ""
             );
           })}
-        <div className="flex flex-col gap-y-3 w-72 h-64 max-sm:h-52 items-center justify-center">
+        {/* <div className="flex flex-col gap-y-3 w-72 h-64 max-sm:h-52 items-center justify-center">
           <div className="app-image w-full h-40 flex justify-center items-center base-rounded">
             <img
               src={require("../../../assets/img/reminder-app.png")}
@@ -67,7 +68,7 @@ export const ExperiencePortfolio = () => {
             />
           </div>
           <p className="text-center text-lg max-sm:hidden">Reminder app</p>
-        </div>
+        </div> */}
       </div>
     </div>
   );

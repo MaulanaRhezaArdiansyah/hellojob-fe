@@ -1,10 +1,22 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
 export const Auth = ({ setIsLogin }) => {
   const navigate = useNavigate();
+  const userRole = JSON.parse(localStorage.getItem("@userLogin")).user.role;
+  // const { userId } = useParams();
+  // const getDetailUser = (id)=> {
+  //   console.log(id)
+  //   // navigate()
+  // }
+  const userLoginID = JSON.parse(localStorage.getItem("@userLogin")).user.id;
+  console.log(userLoginID);
   return (
-    <div className="flex gap-x-3">
+    <div className="flex gap-x-3 md:gap-x-6 items-center">
+      <img src={require("../../assets/img/bell.png")} alt="" />
+      <Link to="/chat">
+        <img src={require("../../assets/img/mail-navbar.png")} alt="" />
+      </Link>
       <div className="">
         <div className="dropdown dropdown-end z-20">
           <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
@@ -18,7 +30,13 @@ export const Auth = ({ setIsLogin }) => {
           >
             <li>
               <button
-                // onClick={() => navigate("/profile")}
+                onClick={() => {
+                  if (userRole === "perekrut") {
+                    navigate(`/profile/recruiter/edit/${userLoginID}`);
+                  } else {
+                    navigate(`/profile/talent/edit/${userLoginID}`);
+                  }
+                }}
                 className="hover:bg-amber-200 justify-between"
               >
                 Profile

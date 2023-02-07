@@ -11,11 +11,7 @@ export const TalentList = () => {
   const errorUsers = users.error;
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const getDetailUser = (id) => {
-    // console.log(id);
-    navigate(`/profile/talent/${id}`);
-  };
-  console.log(usersData);
+
   useEffect(() => {
     dispatch(getDataUsers(`/`));
   }, []);
@@ -30,7 +26,15 @@ export const TalentList = () => {
         className="talent-list talent-list-row border-b-[2px] border-[#F2F3F4] w-full h-[60vh] flex flex-col md:flex-row items-center justify-center gap-y-3 md:px-5"
       >
         <div className="w-full md:w-[20%] flex items-center justify-center md:justify-start  ">
-          <img src={require("../../assets/img/harry.png")} alt="" />
+          <img
+            src={
+              item.avatar
+                ? `http://localhost:5000/uploads/images/${item.avatar}`
+                : ""
+            }
+            alt=""
+            className="w-32 h-32 rounded-full"
+          />
         </div>
         <div className=" md:w-[60%] flex flex-col gap-y-3">
           <p className="text-2xl text-utama font-bold text-center md:text-left">
@@ -60,7 +64,11 @@ export const TalentList = () => {
         </div>
         <button
           onClick={(id) => {
-            getDetailUser(item.id);
+            if (item.role === "pekerja") {
+              navigate(`/profile/talent/${item.id}`);
+            } else {
+              navigate(`/profile/recruiter/${item.id}`);
+            }
           }}
           className="bg-purple px-8 py-3 base-rounded text-white"
         >

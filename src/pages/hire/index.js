@@ -16,8 +16,9 @@ export const Hire = () => {
   useEffect(() => {
     dispatch(getDataUsers(`/${userId}`));
   }, []);
+  console.log(userDataDetail);
 
-  const dataSkill = userDataDetail[0] ? userDataDetail[0].skills : "";
+  const dataSkill = userDataDetail.skills ? userDataDetail.skills : "";
 
   const resDataSkill = dataSkill
     ? dataSkill.map((s) => {
@@ -31,34 +32,42 @@ export const Hire = () => {
         <div className="profile-card bg-white w-full md:w-[60%] base-rounded h-[130vh] px-5 py-5 flex flex-col gap-y-8">
           <div className="bio flex flex-col gap-y-3 ">
             <div className=" w-full flex justify-center items-center">
-              <img src={require("../../assets/img/harry.png")} alt="" />
+              <img
+                src={
+                  userDataDetail.avatar
+                    ? `http://localhost:5000/uploads/images/${userDataDetail.avatar}`
+                    : ""
+                }
+                alt={userDataDetail.name}
+                className="w-32 h-32 rounded-full"
+              />
             </div>
             <div className="flex flex-col">
               <h2 className="text-2xl font-bold text-[#1F2A36]">
-                {userDataDetail[0] ? userDataDetail[0].name : ""}
+                {userDataDetail ? userDataDetail.name : ""}
               </h2>
               <p className="text-lg text-[#1F2A36]">
-                {userDataDetail[0] ? userDataDetail[0].job_desk : ""}
+                {userDataDetail ? userDataDetail.job_desk : ""}
               </p>
               <p className="text-[#9EA0A5]">
-                {userDataDetail[0] ? userDataDetail[0].job_status : ""}
+                {userDataDetail ? userDataDetail.job_status : ""}
               </p>
             </div>
             <div className="flex flex-col gap-y-1">
               <div className="flex gap-x-2 items-center">
                 <img src={require("../../assets/img/loc.png")} alt="" />
                 <p className="text-[#9EA0A5]">
-                  {userDataDetail[0] ? userDataDetail[0].domisili : ""}
+                  {userDataDetail ? userDataDetail.domisili : ""}
                 </p>
               </div>
               <div className="flex gap-x-2 items-center">
                 <img src={require("../../assets/img/phone.png")} alt="" />
                 <p className="text-[#9EA0A5]">
-                  {userDataDetail[0] ? userDataDetail[0].phone : ""}
+                  {userDataDetail ? userDataDetail.phone : ""}
                 </p>
               </div>
               <p className="text-[#9EA0A5] pt-2">
-                {userDataDetail[0] ? userDataDetail[0].description : ""}
+                {userDataDetail ? userDataDetail.description : ""}
               </p>
             </div>
           </div>
@@ -82,7 +91,10 @@ export const Hire = () => {
         <section className="w-full flex flex-col h-[130vh] gap-y-6 p-4">
           <div className="flex flex-col gap-y-5 pb-8">
             <h2 className="text-4xl">
-              Hubungi {userDataDetail[0] ? userDataDetail[0].name : ""}
+              Hubungi{" "}
+              <span className="font-bold">
+                {userDataDetail ? userDataDetail.name : ""}
+              </span>
             </h2>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. In
