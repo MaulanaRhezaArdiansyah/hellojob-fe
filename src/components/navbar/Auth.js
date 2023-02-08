@@ -1,16 +1,20 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate, useParams } from "react-router-dom";
 
 export const Auth = ({ setIsLogin }) => {
   const navigate = useNavigate();
   const userRole = JSON.parse(localStorage.getItem("@userLogin")).user.role;
-  // const { userId } = useParams();
-  // const getDetailUser = (id)=> {
-  //   console.log(id)
-  //   // navigate()
-  // }
   const userLoginID = JSON.parse(localStorage.getItem("@userLogin")).user.id;
-  // console.log(userLoginID);
+
+  const userDetail = useSelector((state) => state.users);
+  const userDataDetail = userDetail.data;
+  const loadingUser = userDetail.loading;
+  const errorUser = userDetail.error;
+  const dispatch = useDispatch();
+  const { userId } = useParams();
+
+  console.log(userDataDetail);
   return (
     <div className="flex gap-x-3 md:gap-x-6 items-center">
       <img src={require("../../assets/img/bell.png")} alt="" />
@@ -21,7 +25,14 @@ export const Auth = ({ setIsLogin }) => {
         <div className="dropdown dropdown-end z-20">
           <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
             <div className="w-8 rounded-full">
-              <img src={require("../../assets/img/harry.png")} alt="" />
+              <img
+                src={
+                  userDataDetail.avatar
+                    ? `http://localhost:5000/uploads/images/${userDataDetail.avatar}`
+                    : "default avatar"
+                }
+                alt=""
+              />
             </div>
           </label>
           <ul
