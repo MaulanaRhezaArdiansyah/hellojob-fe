@@ -41,7 +41,7 @@ export const ProfileTalent = () => {
         <div className="w-full h-[60vh] bg-purple"></div>
         <div className="w-full h-[200vh] bg-base"></div>
         <section className="w-full h-[350vh] md:h-[150vh] px-3 md:px-32 absolute z-10 top-20 flex flex-col md:flex-row md:pt-20 md:gap-x-10 gap-y-6">
-          <div className="profile-card bg-white w-full md:w-[60%] base-rounded h-[130vh] md:h-[150vh] px-5 py-5 flex flex-col gap-y-8">
+          <div className="profile-card bg-white w-full md:w-[60%] base-rounded h-[130vh] md:h-[200vh] px-5 py-5 flex flex-col gap-y-8">
             <div className="bio flex flex-col gap-y-3 ">
               <div className=" w-full flex justify-center items-center">
                 <img
@@ -86,7 +86,7 @@ export const ProfileTalent = () => {
                 onClick={(id) => {
                   getDetailUser(userDataDetail.id);
                 }}
-                className="bg-purple base-rounded text-white mt-1 py-5"
+                className="bg-purple base-rounded text-white mt-1 py-5 border-[1px] border-[#5E50A1] hover:bg-transparent hover:text-purple duration-200"
               >
                 Hire
               </button>

@@ -25,7 +25,7 @@ export const EditProfileTalent = () => {
   return (
     <>
       <Navbar />
-      <main className="h-[600vh] sm:h-[650vh] lg:h-[600vh] w-full bg-base pt-28 max-sm:pt-16 px-3 flex flex-col gap-y-5  md:gap-x-6 md:flex-row md:px-32 md:pt-40">
+      <main className="h-[600vh] sm:h-[700vh] lg:h-[600vh] w-full bg-base pt-28 max-sm:pt-16 px-3 flex flex-col gap-y-5  md:gap-x-6 md:flex-row md:px-32 md:pt-40">
         <section className="w-full md:w-[60%] h-[90vh] md:h-[120vh] flex flex-col gap-y-5 sm:mb-10">
           <div className="profile-card shadow-2xl bg-white w-full base-rounded h-[80%] md:h-[150vh] px-5 py-5 flex flex-col gap-y-8">
             <div className="bio flex flex-col gap-y-3">

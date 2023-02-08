@@ -80,10 +80,15 @@ export const AddSkillForm = () => {
                 >
                   <p className="text-white">{sk.skill_name}</p>
                   <div className="flex items-center justify-center gap-x-3">
-                    <img src={require("../../../assets/img/edit.png")} alt="" />
+                    <img
+                      src={require("../../../assets/img/edit.png")}
+                      alt=""
+                      className="border-[1px] border-white base-rounded p-1"
+                    />
                     <img
                       src={require("../../../assets/img/delete.png")}
                       alt=""
+                      className="border-[1px] border-white base-rounded p-1"
                     />
                   </div>
                 </div>

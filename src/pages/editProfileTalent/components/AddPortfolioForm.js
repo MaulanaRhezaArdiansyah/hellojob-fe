@@ -1,8 +1,44 @@
-import React from "react";
+import axios from "axios";
+import React, { useState } from "react";
+import { useParams } from "react-router-dom";
 
 export const AddPortfolioForm = () => {
+  const [portfolio, setPortfolio] = useState({
+    app_name: "",
+    link_repo: "",
+    portfolio_image: "",
+  });
+  const [image, setImage] = useState(null);
+
+  const portfolioFormData = new FormData();
+  portfolioFormData.append("app_name", portfolio.app_name);
+  portfolioFormData.append("link_repo", portfolio.link_repo);
+  portfolioFormData.append("portfolio_image", image);
+
+  const { userId } = useParams();
+
+  const handleAddPortfolio = (event) => {
+    event.preventDefault();
+    axios({
+      method: "POST",
+      url: `http://localhost:5000/api/v1/addPortfolio/${userId}`,
+      data: portfolioFormData,
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    })
+      .then((result) => {
+        console.log(result.data.data);
+        setPortfolio(result.data.data);
+        alert(result.data.message);
+      })
+      .catch((err) => {
+        alert(err.response.data.message);
+      });
+  };
   return (
     <form
+      onSubmit={handleAddPortfolio}
       encType="multipart/form-data"
       className="portfolio shadow-2xl w-full h-[30%] bg-white base-rounded p-5 flex flex-col gap-y-4"
     >
@@ -14,6 +50,13 @@ export const AddPortfolioForm = () => {
           Nama aplikasi :
         </label>
         <input
+          onChange={(e) => {
+            console.log(e.target.value);
+            setPortfolio({
+              ...portfolio,
+              app_name: e.target.value,
+            });
+          }}
           type="text"
           className="border-[1px] border-[#E2E5ED] base-rounded py-5 px-3 focus:outline-none"
           placeholder="Masukkan nama aplikasi"
@@ -24,6 +67,13 @@ export const AddPortfolioForm = () => {
           Link repository :
         </label>
         <input
+          onChange={(e) => {
+            console.log(e.target.value);
+            setPortfolio({
+              ...portfolio,
+              link_repo: e.target.value,
+            });
+          }}
           type="text"
           className="border-[1px] border-[#E2E5ED] base-rounded py-5 px-3 focus:outline-none"
           placeholder="Masukkan link repository"
@@ -34,6 +84,10 @@ export const AddPortfolioForm = () => {
           Upload gambar :
         </label>
         <input
+          onChange={(e) => {
+            console.log(e.target.files[0]);
+            setImage(e.target.files[0]);
+          }}
           type="file"
           name="portfolio_image"
           accept="image/*"

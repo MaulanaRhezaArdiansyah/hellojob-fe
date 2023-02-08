@@ -15,7 +15,7 @@ export const ExperiencePortfolio = () => {
   console.log(userDataDetail.portfolio);
 
   return (
-    <div className="experience-portfolio w-full bg-white base-rounded h-[160vh] md:h-[150vh] px-5 py-8 flex flex-col gap-y-8">
+    <div className="experience-portfolio w-full bg-white base-rounded h-[160vh] md:h-[200vh] px-5 py-8 flex flex-col gap-y-8">
       <div className="category-navigation flex justify-center items-center md:justify-start gap-x-3">
         <button className="text-[#1F2A36] text-2xl font-bold">Portfolio</button>
         <button className="text-2xl">Pengalaman kerja</button>

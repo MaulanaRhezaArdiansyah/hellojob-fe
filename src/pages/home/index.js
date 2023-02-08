@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { Footer } from "../../components/footer";
 import { Navbar } from "../../components/navbar";
 import { TabTitle } from "../../utils/GeneralFunc";
@@ -9,6 +10,8 @@ import { Section3 } from "./components/Section3";
 
 export const LandingPage = () => {
   TabTitle("HelloJob");
+  const navigate = useNavigate();
+
   return (
     <>
       <Navbar />
@@ -22,7 +25,12 @@ export const LandingPage = () => {
             <p className="text-white text-xl md:text-3xl">
               Lorem ipsum dolor sit amet
             </p>
-            <button className="base-rounded bg-white text-purple px-3 py-2 md:px-5 md:py-4">
+            <button
+              onClick={() => {
+                navigate("/home");
+              }}
+              className="base-rounded bg-white text-purple px-3 py-2 md:px-5 md:py-4 border-[1px] border-white hover:bg-transparent hover:text-white duration-200"
+            >
               Mulai Dari Sekarang
             </button>
           </div>

@@ -30,11 +30,6 @@ export const HomeLogged = () => {
         </header>
         <section className="searchbar-row w-full h-[20vh] flex justify-center px-3 md:px-32">
           <div className="searchbar bg-white w-full h-full base-rounded flex items-center">
-            {/* <input
-              type="text"
-              className="h-full focus:outline-none px-3 md:px-6 rounded-tl-md rounded-bl-md border-r-[1px] border-[#9EA0A5] md:w-[80%]"
-              placeholder="Search talent"
-            /> */}
             <div className="dropdown flex items-center justify-center w-[30%] h-full rounded-tr-md rounded-br-md gap-x-1 md:gap-x-3">
               <img src={require("../../assets/img/sort.png")} alt="" />
               <p className="cursor-pointer" tabIndex={0}>
@@ -81,7 +76,6 @@ export const HomeLogged = () => {
             </div>
             <input
               onChange={(e) => {
-                // console.log(e.target.value);
                 setSearch(e.target.value);
               }}
               type="text"
@@ -91,35 +85,9 @@ export const HomeLogged = () => {
           </div>
         </section>
         <section className="talent-list-section px-3 md:px-32 w-full h-[300vh]">
-          <div className="talent-container bg-white w-full h-full base-rounded">
-            <TalentList />
-          </div>
+          <TalentList />
         </section>
         <PaginationBar />
-        {/* <section className="pagination w-full px-3 md:px-32 h-[30vh]">
-          <div className="pagination-container h-full w-full flex justify-center items-center gap-x-5">
-            <button className="border-[1px] border-[#DDDDDE] w-16 h-16 flex items-center justify-center base-rounded bg-white">
-              {" "}
-              🔙{" "}
-            </button>
-            <button className="border-[1px] border-[#DDDDDE] w-16 h-16 flex items-center justify-center base-rounded bg-white">
-              {" "}
-              1{" "}
-            </button>
-            <button className="border-[1px] border-[#DDDDDE] w-16 h-16 flex items-center justify-center base-rounded bg-white">
-              {" "}
-              2{" "}
-            </button>
-            <button className="border-[1px] border-[#DDDDDE] w-16 h-16 flex items-center justify-center base-rounded bg-white">
-              {" "}
-              3{" "}
-            </button>
-            <button className="border-[1px] border-[#DDDDDE] w-16 h-16 flex items-center justify-center base-rounded bg-white">
-              {" "}
-              🔜{" "}
-            </button>
-          </div>
-        </section> */}
       </main>
       <Footer />
     </>
