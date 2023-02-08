@@ -10,7 +10,7 @@ export const Auth = ({ setIsLogin }) => {
   //   // navigate()
   // }
   const userLoginID = JSON.parse(localStorage.getItem("@userLogin")).user.id;
-  console.log(userLoginID);
+  // console.log(userLoginID);
   return (
     <div className="flex gap-x-3 md:gap-x-6 items-center">
       <img src={require("../../assets/img/bell.png")} alt="" />

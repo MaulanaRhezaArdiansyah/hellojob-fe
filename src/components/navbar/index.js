@@ -13,7 +13,7 @@ export const Navbar = () => {
     }
   }, []);
   return (
-    <nav className="w-full h-[15vh] md:h-[15vh] flex justify-between px-3 items-center max-sm:fixed max-sm:bottom-0 max-sm:left-0 max-sm:right-0 right-0 bg-white md:px-32 z-20 shadow-xl max-sm:rounded-tr-lg max-sm:rounded-tl-lg">
+    <nav className="w-full h-[15vh] md:h-[15vh] flex justify-between px-3 items-center fixed max-sm:fixed max-sm:bottom-0 max-sm:left-0 max-sm:right-0 right-0 bg-white md:px-32 z-20 shadow-2xl max-sm:rounded-tr-lg max-sm:rounded-tl-lg">
       <Link to="/">
         <div className="flex">
           <p className="text-purple text-xl cursor-pointer font-bold">
